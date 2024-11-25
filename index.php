@@ -155,7 +155,7 @@
                         </div>
                         <div class="card-caption">
                             <div class="card-title">
-                                <a href="#">CRAFTER GA7/N акустическая гитара</a>
+                                <a href="#">CRAFTER GA7/N acoustic guitar</a>
                             </div>
                             <div class="card-price text-center">13 367 UAN</div>
                             <button type="button" class="btn btn-info btn-block card-addtocart"><i class="fas fa-cart-arrow-down"></i> Add to cart</button>
@@ -168,7 +168,7 @@
                         </div>
                         <div class="card-caption">
                             <div class="card-title">
-                                <a href="#">CRAFTER GA8/BK акустическая гитара</a>
+                                <a href="#">CRAFTER GA8/BK acoustic guitar</a>
                             </div>
                             <div class="card-price text-center">13 794 UAN</div>
                             <button type="button" class="btn btn-info btn-block card-addtocart"><i class="fas fa-cart-arrow-down"></i> Add to cart</button>
@@ -207,7 +207,7 @@
                         </div>
                         <div class="card-caption">
                             <div class="card-title">
-                                <a href="#">Crafter J15/N акустическая гитара</a>
+                                <a href="#">Crafter J15/N acoustic guitar</a>
                             </div>
                             <div class="card-price text-center">16 743 UAN</div>
                             <button type="button" class="btn btn-info btn-block card-addtocart"><i class="fas fa-cart-arrow-down"></i> Add to cart</button>
@@ -220,7 +220,7 @@
                         </div>
                         <div class="card-caption">
                             <div class="card-title">
-                                <a href="#">CRAFTER J18/N акустическая гитара. джамбо</a>
+                                <a href="#">CRAFTER J18/N acoustic guitar. djambo</a>
                             </div>
                             <div class="card-price text-center">17 271 UAN</div>
                             <button type="button" class="btn btn-info btn-block card-addtocart"><i class="fas fa-cart-arrow-down"></i> Add to cart</button>
