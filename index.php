@@ -1,3 +1,11 @@
+<?php
+error_reporting(-1);
+require_once __DIR__ . '/inc/db.php';
+require_once __DIR__ . '/inc/func.php';
+$products = get_products();
+// debug($products);
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -34,54 +42,29 @@
     <div class="wrapper mt-5">
         <div class="container">
             <div class="row">
-                <div class="product-cards mb-5">
-                    <div class="product-card">
-                        <div class="offer">
-                            <div class="offer-hit">Hit</div>
-                            <div class="offer-sale">Sale</div>
-                        </div>
-                        <div class="card-thumb">
-                            <a href="#"><img src="assets/img/1_b.jpg" alt=""></a>
-                        </div>
-                        <div class="card-caption">
-                            <div class="card-title">
-                                <a href="#">CORT AD810MAcoustic guitar</a>
+                <?php if(!empty($products)): ?>
+                    <?php foreach($products as $product): ?>
+                        <div class="product-cards mb-5">
+                            <div class="product-card">
+                                <div class="offer">
+                                    <?php echo $product['hit'] ? '<div class="offer-hit">Hit</div>' : '';?>
+                                    <?php echo $product['sale'] ? '<div class="offer-sale">Sale</div>' : '';?>
+                                </div>
+                                <div class="card-thumb">
+                                    <a href="#"><img src="assets/img/<?php echo $product['img'];?>" alt=""></a>
+                                </div>
+                                <div class="card-caption">
+                                    <div class="card-title">
+                                        <a href="#"><?php echo $product['title']; ?></a>
+                                    </div>
+                                    <div class="card-price text-center"><?php echo ($product['old_price'] != 0) ? "<del>{$product['old_price']} UAN</del>" : '';?> <?php echo $product['price']; ?> UAN</div>
+                                    <a href="?cart=add&id=<?php echo $product['id']; ?>" type="button" class="btn btn-info btn-block card-addtocart" data-id="<?php echo $product['id']; ?>"><i class="fas fa-cart-arrow-down"></i> Add to cart</a>
+                                    <div class="item-status"><i class="fas fa-check text-success"></i> In stock</div>
+                                </div>
                             </div>
-                            <div class="card-price text-center"><del>3142 UAN</del> 99 UAN</div>
-                            <button type="button" class="btn btn-info btn-block card-addtocart"><i class="fas fa-cart-arrow-down"></i> Add to cart</button>
-                            <div class="item-status"><i class="fas fa-check text-success"></i> In stock</div>
                         </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="offer">
-                            <div class="offer-hit">Hit</div>
-                        </div>
-                        <div class="card-thumb">
-                            <a href="#"><img src="assets/img/2.jpg" alt=""></a>
-                        </div>
-                        <div class="card-caption">
-                            <div class="card-title">
-                                <a href="#">Crafter D6/N Acoustic guitar</a>
-                            </div>
-                            <div class="card-price text-center">12 626 UAN</div>
-                            <button type="button" class="btn btn-info btn-block card-addtocart"><i class="fas fa-cart-arrow-down"></i> Add to cart</button>
-                            <div class="item-status"><i class="far fa-pause-circle text-danger"></i> Expected</div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-thumb">
-                            <a href="#"><img src="assets/img/no-image.png" alt=""></a>
-                        </div>
-                        <div class="card-caption">
-                            <div class="card-title">
-                                <a href="#">CRAFTER TA070/Light Amber Acoustic guitar</a>
-                            </div>
-                            <div class="card-price text-center">20 378 UAN</div>
-                            <button type="button" class="btn btn-info btn-block card-addtocart"><i class="fas fa-cart-arrow-down"></i> Add to cart</button>
-                            <div class="item-status"><i class="fas fa-shipping-fast text-muted"></i> In stock</div>
-                        </div>
-                    </div>
-                </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
             <div class="row">
                 <nav aria-label="Page navigation example">
