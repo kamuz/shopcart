@@ -1,21 +1,16 @@
 $(function() {
 
-    // console.log('Load');
-
     function showCart(cart){
         $('#cart-modal .cart-modal-content').html(cart);
         $('#cart-modal').modal();
 
         let catQty = $('#modal-cart-qty').text() ? $('#modal-cart-qty').text() : 0;
-        console.log(catQty);
         $('#mini-cart-qty').text(catQty);
     }
 
     $('.card-addtocart').on('click', function(e){
         e.preventDefault();
-        // console.log('Click');
         let id = $(this).data('id');
-        console.log(id);
         $.ajax({
             url: 'cart.php',
             type: 'GET',
@@ -44,6 +39,23 @@ $(function() {
             type: 'GET',
             data: {
                 cart: 'show',
+            },
+            success: function(res){
+                showCart(res);
+            },
+            error: function(res){
+                alert('Error');
+            }
+        })
+    });
+
+    $('#cart-modal .cart-modal-content').on('click', '#clear-cart', function(){
+        console.log('click');
+        $.ajax({
+            url: 'cart.php',
+            type: 'GET',
+            data: {
+                cart: 'clear',
             },
             success: function(res){
                 showCart(res);

@@ -29,6 +29,7 @@
     <?php endif; ?>
 </div>
 <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <?php if(!empty($_SESSION['cart'])): ?>
         <button type="button" class="btn btn-primary">Checkout order</button>
         <button type="button" class="btn btn-danger" id="clear-cart">Clear cart</button>

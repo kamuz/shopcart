@@ -22,5 +22,13 @@ if (isset($_GET['cart'])) {
         case 'show':
             require __DIR__ . '/cart-modal.php';
             break;
+        case 'clear':
+            if(!empty($_SESSION['cart'])) {
+                unset($_SESSION['cart']);
+                unset($_SESSION['cart.qty']);
+                unset($_SESSION['cart.sum']);
+            }
+            require __DIR__ . '/cart-modal.php';
+            break;
     }
 }
