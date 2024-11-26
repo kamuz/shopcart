@@ -13,7 +13,10 @@ if (isset($_GET['cart'])) {
                 echo json_encode(['code' => 'error', 'answer' => 'Not found product']);
             } else{
                 add_to_cart($product);
-                echo json_encode(['code' => 'ok', 'answer' => $product]);
+                ob_start();
+                require __DIR__ . '/cart-modal.php';
+                $cart = ob_get_clean();
+                echo json_encode(['code' => 'ok', 'answer' => $cart]);
             }
             break;
     }

@@ -31,7 +31,7 @@ $products = get_products();
                 <li class="nav-item"><a class="nav-link" href="#">Guitars</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Guitar equipment</a></li>
                 <li class="nav-item">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart-modal">Basket <span class="badge badge-light">3</span></button>
+                    <button id="get-cart" type="button" class="btn btn-primary mini-cart-qty" data-toggle="modal" data-target="#cart-modal">Basket <span class="badge badge-light" id="mini-cart-qty"><?php echo $_SESSION['cart.qty'] ?? 0; ?></span></button>
                 </li>
             </ul>
             <form class="form-inline">
@@ -40,7 +40,7 @@ $products = get_products();
             </form>
         </div>
     </nav>
-    <?php debug($_SESSION); //session_destroy(); ?>
+    <?php debug($_SESSION); session_destroy(); ?>
     <div class="wrapper mt-5">
         <div class="container">
             <div class="row">
@@ -82,7 +82,7 @@ $products = get_products();
         </div>
     </div>
     <div class="modal fade cart-modal" id="cart-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Basket</h5>
@@ -90,41 +90,7 @@ $products = get_products();
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Image</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Qty</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="#"><img src="assets/img/1.jpg" alt="CORT AD810M Acoustic guitar"></a>
-                                </td>
-                                <td><a href="#">CORT AD810M Acoustic guitar</a></td>
-                                <td>2 799</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td><a href="#"><img src="assets/img/2.jpg" alt="Crafter D6/N Acoustic guitar"></a>
-                                </td>
-                                <td><a href="#">Crafter D6/N Acoustic guitar</a></td>
-                                <td>12 626</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td colspan="4" align="right">Products: 3 <br> Total: 28 051 UAH</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Checkout order</button>
-                </div>
+                <div class="cart-modal-content"></div>
             </div>
         </div>
     </div>

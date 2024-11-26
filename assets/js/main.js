@@ -2,6 +2,15 @@ $(function() {
 
     // console.log('Load');
 
+    function showCart(cart){
+        $('#cart-modal .cart-modal-content').html(cart);
+        $('#cart-modal').modal();
+
+        let catQty = $('#modal-cart-qty').text() ? $('#modal-cart-qty').text() : 0;
+        console.log(catQty);
+        $('#mini-cart-qty').text(catQty);
+    }
+
     $('.card-addtocart').on('click', function(e){
         e.preventDefault();
         // console.log('Click');
@@ -17,7 +26,7 @@ $(function() {
             dataType: 'json',
             success: function(res){
                 if(res.code === 'ok') {
-                    console.log(res.answer);
+                    showCart(res.answer);
                 } else {
                     console.log(res.answer);
                 }
