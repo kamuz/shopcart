@@ -28,3 +28,27 @@ function get_product(int $id):array
     $smtp->execute([$id]);
     return $smtp->fetch();
 }
+
+/**
+ * Add to cart
+ */
+function add_to_cart($product):void
+{
+    if(isset($_SESSION['cart'][$product['id']])) {
+        // If product exist in the cart - increment QTY
+        $_SESSION['cart'][$product['id']]['qty'] += 1;
+    } else {
+        // If new product - add data to cart
+        $_SESSION['cart'][$product['id']] = [
+            'title' => $product['title'],
+            'slug' => $product['slug'],
+            'price' => $product['price'],
+            'qty' => 1,
+            'img' => $product['img'],
+        ];
+    }
+    // Increment QTY
+    $_SESSION['cart.qty'] = !empty($_SESSION['cart.qty']) ? ++$_SESSION['cart.qty'] : 1;
+    // Increase SUM
+    $_SESSION['cart.sum'] = !empty($_SESSION['cart.sum']) ? $_SESSION['cart.sum'] + $product['price'] : $product['price'];
+}

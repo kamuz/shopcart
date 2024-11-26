@@ -1,5 +1,6 @@
 <?php
 error_reporting(-1);
+session_start();
 require_once __DIR__ . '/inc/db.php';
 require_once __DIR__ . '/inc/func.php';
 $products = get_products();
@@ -39,6 +40,7 @@ $products = get_products();
             </form>
         </div>
     </nav>
+    <?php debug($_SESSION); //session_destroy(); ?>
     <div class="wrapper mt-5">
         <div class="container">
             <div class="row">

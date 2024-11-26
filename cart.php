@@ -12,6 +12,7 @@ if (isset($_GET['cart'])) {
             if(!$product) {
                 echo json_encode(['code' => 'error', 'answer' => 'Not found product']);
             } else{
+                add_to_cart($product);
                 echo json_encode(['code' => 'ok', 'answer' => $product]);
             }
             break;
