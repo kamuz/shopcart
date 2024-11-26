@@ -19,5 +19,8 @@ if (isset($_GET['cart'])) {
                 echo json_encode(['code' => 'ok', 'answer' => $cart]);
             }
             break;
+        case 'show':
+            require __DIR__ . '/cart-modal.php';
+            break;
     }
 }

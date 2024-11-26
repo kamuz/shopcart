@@ -29,18 +29,16 @@ $products = get_products();
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active"><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Guitars</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Guitar equipment</a></li>
                 <li class="nav-item">
                     <button id="get-cart" type="button" class="btn btn-primary mini-cart-qty" data-toggle="modal" data-target="#cart-modal">Basket <span class="badge badge-light" id="mini-cart-qty"><?php echo $_SESSION['cart.qty'] ?? 0; ?></span></button>
                 </li>
             </ul>
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </nav>
-    <?php debug($_SESSION); session_destroy(); ?>
     <div class="wrapper mt-5">
         <div class="container">
             <div class="row">

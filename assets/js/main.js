@@ -36,4 +36,21 @@ $(function() {
             }
         })
     });
+
+    $('#get-cart').on('click', function(e){
+        e.preventDefault();
+        $.ajax({
+            url: 'cart.php',
+            type: 'GET',
+            data: {
+                cart: 'show',
+            },
+            success: function(res){
+                showCart(res);
+            },
+            error: function(res){
+                alert('Error');
+            }
+        })
+    });
 });
