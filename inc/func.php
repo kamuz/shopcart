@@ -18,3 +18,13 @@ function get_products():array
     return $res->fetchAll(PDO::FETCH_ASSOC);
 }
 
+/**
+ * Get product
+ */
+function get_product(int $id):array
+{
+    global $pdo;
+    $smtp = $pdo->prepare("SELECT * FROM products WHERE id = ?");
+    $smtp->execute([$id]);
+    return $smtp->fetch();
+}
